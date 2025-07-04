@@ -8,6 +8,9 @@
     },
     {
       "path": "./apps/dreckly"
+    },
+    {
+      "path": "./libs/shared/layout"
     }
   ]
 }
