@@ -15,6 +15,6 @@ describe('MenuItem', () => {
         removeFromCart={() => jest.fn()}
       />
     );
-    expect(screen.getByText('MenuItem')).toBeInTheDocument();
+    expect(screen.getByText('Test Item')).toBeInTheDocument();
   });
 });

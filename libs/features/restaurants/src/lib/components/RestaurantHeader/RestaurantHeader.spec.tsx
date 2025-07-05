@@ -14,6 +14,6 @@ describe('RestaurantHeader', () => {
         address="123 Test Street, Test City"
       />
     );
-    expect(screen.getByText('Restaurant Header')).toBeInTheDocument();
+    expect(screen.getByText('Test Restaurant')).toBeInTheDocument();
   });
 });

@@ -11,12 +11,20 @@ describe('MenuSection', () => {
       <MenuSection
         restaurantName="Test Restaurant"
         categoryName="Test Menu"
-        items={[]}
+        items={[
+          {
+            id: '1',
+            name: 'Test Item',
+            description: 'Test Description',
+            price: 10,
+          },
+        ]}
         cart={{}}
         addToCart={() => jest.fn()}
         removeFromCart={() => jest.fn()}
       />
     );
-    expect(screen.getByText('Menu Section')).toBeInTheDocument();
+    expect(screen.getByText('Test Menu')).toBeInTheDocument();
+    expect(screen.getByText('MenuItem')).toBeInTheDocument();
   });
 });
