@@ -1,4 +1,4 @@
-import { Hero, CuisineFilter } from '@dreckly/features-home';
+import { Hero, CuisineFilter, RestaurantList } from '@dreckly/features-home';
 import {
   Utensils,
   Fish,
@@ -26,6 +26,7 @@ const Page = () => {
     <>
       <Hero />
       <CuisineFilter cuisineTypes={cuisineTypes} />
+      <RestaurantList />
     </>
   );
 };
