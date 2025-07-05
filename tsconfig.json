@@ -11,6 +11,9 @@
     },
     {
       "path": "./libs/shared/layout"
+    },
+    {
+      "path": "./libs/shared/ui-kit"
     }
   ]
 }
