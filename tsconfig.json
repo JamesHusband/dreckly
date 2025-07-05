@@ -20,6 +20,9 @@
     },
     {
       "path": "./libs/features/restaurants"
+    },
+    {
+      "path": "./libs/data-access"
     }
   ]
 }
