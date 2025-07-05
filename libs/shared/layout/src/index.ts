@@ -1,1 +1,1 @@
-export * from './lib/ClientLayout';
+export * from './lib';

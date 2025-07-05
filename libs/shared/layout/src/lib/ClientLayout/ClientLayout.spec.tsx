@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import SharedLayout from './ClientLayout';
+import { ClientLayout } from '.';
 
 describe('SharedLayout', () => {
   it('should render successfully', () => {
-    const { getByText } = render(<SharedLayout>Hello</SharedLayout>);
+    const { getByText } = render(<ClientLayout>Hello</ClientLayout>);
     expect(getByText('Hello')).toBeInTheDocument();
   });
 });

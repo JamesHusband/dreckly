@@ -1,3 +1,4 @@
+import { ClientLayout } from '@dreckly/shared-layout';
 import './global.css';
 import type { Metadata } from 'next';
 
@@ -14,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
     </html>
   );
 }
