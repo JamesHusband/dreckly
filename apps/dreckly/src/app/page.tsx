@@ -10,7 +10,22 @@ import {
   Salad,
 } from 'lucide-react';
 
-const Page = () => {
+interface Restaurant {
+  id: number;
+  name: string;
+  cuisine: string;
+  rating: number;
+  deliveryTime: string;
+  deliveryFee: string;
+  featured: boolean;
+}
+
+const Page = async () => {
+  const res = await fetch('http://localhost:3000/api/restaurants', {
+    cache: 'no-store',
+  });
+  const restaurants: Restaurant[] = await res.json();
+
   const cuisineTypes = [
     { name: 'Cornish', icon: Utensils },
     { name: 'Fish & Chips', icon: Fish },
@@ -26,7 +41,7 @@ const Page = () => {
     <>
       <Hero />
       <CuisineFilter cuisineTypes={cuisineTypes} />
-      <RestaurantList />
+      <RestaurantList restaurants={restaurants} />
     </>
   );
 };
