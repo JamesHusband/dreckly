@@ -29,7 +29,11 @@
           "watchDepsName": "watch-deps"
         }
       },
-      "exclude": ["libs/data-access/*", "libs/shared/utils/*"]
+      "exclude": [
+        "libs/data-access/*",
+        "libs/shared/utils/*",
+        "libs/shared/types/*"
+      ]
     },
     {
       "plugin": "@nx/next/plugin",
@@ -73,7 +77,11 @@
     },
     {
       "plugin": "@nx/js/typescript",
-      "include": ["libs/data-access/*", "libs/shared/utils/*"],
+      "include": [
+        "libs/data-access/*",
+        "libs/shared/utils/*",
+        "libs/shared/types/*"
+      ],
       "options": {
         "typecheck": {
           "targetName": "typecheck"
