@@ -16,13 +16,18 @@ describe('RestaurantList', () => {
             cuisine: 'Test Cuisine',
             rating: 4.5,
             deliveryTime: '20-30 min',
-            deliveryFee: '£2.99',
+            deliveryFee: 2.99,
             featured: true,
+            menu: [],
+            description: 'Test Description',
+            reviewCount: 100,
+            address: 'Test Address',
+            minimumOrder: 10,
           },
         ]}
       />
     );
-    expect(screen.getByText('Restaurant List')).toBeInTheDocument();
+    expect(screen.getByText('All restaurants')).toBeInTheDocument();
     expect(screen.getByText('RestaurantCard')).toBeInTheDocument();
   });
 });

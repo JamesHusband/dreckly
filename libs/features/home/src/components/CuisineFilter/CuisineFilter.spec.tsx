@@ -10,9 +10,15 @@ describe('CuisineFilter', () => {
   it('should render', () => {
     render(
       <CuisineFilter
-        cuisineTypes={[
-          { name: 'Name', icon: () => <div>Icon</div> },
-          { name: 'Name2', icon: () => <div>Icon2</div> },
+        cuisines={[
+          {
+            name: 'Name',
+            icon: 'PieChart',
+          },
+          {
+            name: 'Name2',
+            icon: 'PieChart',
+          },
         ]}
       />
     );
