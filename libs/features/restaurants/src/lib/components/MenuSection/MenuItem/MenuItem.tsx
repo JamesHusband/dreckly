@@ -1,5 +1,4 @@
-import { Minus, Plus } from 'lucide-react';
-import { FoodIcon } from '@dreckly/shared-ui-kit';
+import { FoodIcon, ItemCounter } from '@dreckly/shared-ui-kit';
 
 interface MenuItemProps {
   id: string;
@@ -41,25 +40,11 @@ export const MenuItem = ({
             <div className="flex items-center justify-between">
               <span className="font-bold text-lg">£{price.toFixed(2)}</span>
               <div className="flex items-center gap-2">
-                {cart[id] > 0 && (
-                  <>
-                    <button
-                      onClick={() => removeFromCart(id)}
-                      className="w-8 h-8 border border-gray-300 rounded-md flex items-center justify-center hover:bg-gray-50 transition-colors"
-                    >
-                      <Minus className="h-4 w-4" />
-                    </button>
-                    <span className="w-8 text-center font-medium">
-                      {cart[id]}
-                    </span>
-                  </>
-                )}
-                <button
-                  onClick={() => addToCart(id)}
-                  className="w-8 h-8 bg-orange-500 hover:bg-orange-600 text-white rounded-md flex items-center justify-center transition-colors"
-                >
-                  <Plus className="h-4 w-4" />
-                </button>
+                <ItemCounter
+                  addItem={() => addToCart(id)}
+                  removeItem={() => removeFromCart(id)}
+                  quantity={cart[id]}
+                />
               </div>
             </div>
           </div>
