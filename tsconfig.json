@@ -29,6 +29,9 @@
     },
     {
       "path": "./libs/shared/types"
+    },
+    {
+      "path": "./libs/features/cart"
     }
   ]
 }
