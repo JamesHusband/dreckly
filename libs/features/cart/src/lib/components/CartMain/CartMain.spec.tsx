@@ -14,6 +14,11 @@ jest.mock('../CustomerAddress', () => ({
   CustomerAddress: () => <div>Customer Address</div>,
 }));
 
+jest.mock('@dreckly/shared-ui-kit', () => ({
+  FoodIcon: () => <div>Food Icon</div>,
+  ItemCounter: () => <div>Item Counter</div>,
+}));
+
 describe('CartMain', () => {
   it('should render', () => {
     render(
@@ -26,7 +31,7 @@ describe('CartMain', () => {
             name: 'Test Item',
             price: 10,
             quantity: 1,
-            image: 'test.jpg',
+            image: '/test.jpg',
           } as CartItemType,
         ]}
         userDeliveryAddress="123 Main St"
