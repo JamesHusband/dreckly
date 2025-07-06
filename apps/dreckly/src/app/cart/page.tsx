@@ -35,9 +35,9 @@ const CartPage = () => {
   ]);
 
   // TODO: Get from user profile
-  const [userDeliveryAddress, setUserDeliveryAddress] = useState(
-    '123 High Street, Truro, TR1 2AB'
-  );
+  // const [userDeliveryAddress, setUserDeliveryAddress] = useState(
+  //   '123 High Street, Truro, TR1 2AB'
+  // );
 
   const deliveryFee = 2.99; // TODO: Get from current restaurant
   const serviceFee = 1.49; // TODO: get from Dreckly settings
@@ -71,7 +71,7 @@ const CartPage = () => {
       <div className="grid lg:grid-cols-3 gap-8">
         <CartMain
           cartItems={cartItems}
-          userDeliveryAddress={userDeliveryAddress}
+          userDeliveryAddress={'123 High Street, Truro, TR1 2AB'}
           updateQuantity={updateQuantity}
           removeItem={removeItem}
         />
