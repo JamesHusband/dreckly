@@ -20,8 +20,8 @@ interface OrderSidebarProps {
   removeFromCart: (id: string) => void;
   addToCart: (id: string) => void;
   getCartTotal: () => number;
-  deliveryFee: string;
-  minOrder: string;
+  deliveryFee: number;
+  minOrder: number;
 }
 
 export const OrderSidebar = ({
@@ -92,7 +92,7 @@ export const OrderSidebar = ({
               </div>
               <div className="flex justify-between">
                 <span>Delivery</span>
-                <span>{deliveryFee}</span>
+                <span>£{deliveryFee}</span>
               </div>
               <hr className="border-gray-200" />
               <div className="flex justify-between font-bold">
