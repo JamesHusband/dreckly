@@ -1,4 +1,4 @@
-import { Cuisine } from '@dreckly/types';
+import { Cuisine } from '@dreckly/shared-types';
 
 export const getCuisines = async (): Promise<Cuisine[]> => {
   // TODO: replace Mock data with actual DB data

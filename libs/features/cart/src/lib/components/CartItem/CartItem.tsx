@@ -1,6 +1,6 @@
 import { CartItemType } from '@dreckly/shared-types';
 import { FoodIcon, ItemCounter } from '@dreckly/shared-ui-kit';
-import { Plus, Minus, Trash2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 
 export const CartItem = ({
   item,
