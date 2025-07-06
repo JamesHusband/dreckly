@@ -3,6 +3,9 @@
   "include": [],
   "references": [
     {
+      "path": "../ui-kit"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {

@@ -15,9 +15,7 @@ export const Navbar = () => {
         href="/cart"
         icon={ShoppingCart}
         badgeCount={cartItemCount}
-      >
-        Cart
-      </NavButton>
+      />
 
       <div className="relative">
         <NavButton
