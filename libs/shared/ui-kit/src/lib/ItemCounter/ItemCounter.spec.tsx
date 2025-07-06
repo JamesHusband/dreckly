@@ -32,7 +32,7 @@ describe('ItemCounter', () => {
     );
 
     const buttons = screen.getAllByRole('button');
-    const plusButton = buttons[1]; // Second button is the plus button
+    const plusButton = buttons[1];
     fireEvent.click(plusButton);
 
     expect(mockAddItem).toHaveBeenCalledTimes(1);
@@ -48,7 +48,7 @@ describe('ItemCounter', () => {
     );
 
     const buttons = screen.getAllByRole('button');
-    const minusButton = buttons[0]; // First button is the minus button
+    const minusButton = buttons[0];
     fireEvent.click(minusButton);
 
     expect(mockRemoveItem).toHaveBeenCalledTimes(1);
@@ -63,7 +63,9 @@ describe('ItemCounter', () => {
       />
     );
 
-    expect(screen.getByText('0')).toBeInTheDocument();
+    const buttons = screen.getAllByRole('button');
+    expect(buttons).toHaveLength(1);
+    expect(buttons[0]).toHaveClass('bg-orange-500', 'text-white');
   });
 
   it('should render with large quantity', () => {
@@ -88,8 +90,8 @@ describe('ItemCounter', () => {
     );
 
     const buttons = screen.getAllByRole('button');
-    const minusButton = buttons[0]; // First button is the minus button
-    const plusButton = buttons[1]; // Second button is the plus button
+    const minusButton = buttons[0];
+    const plusButton = buttons[1];
 
     fireEvent.click(plusButton);
     fireEvent.click(plusButton);
