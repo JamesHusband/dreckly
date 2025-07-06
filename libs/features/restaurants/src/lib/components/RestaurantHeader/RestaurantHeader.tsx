@@ -8,7 +8,7 @@ interface RestaurantHeaderProps {
   rating: number;
   reviewCount: number;
   deliveryTime: string;
-  deliveryFee: string;
+  deliveryFee: number;
   address: string;
 }
 
