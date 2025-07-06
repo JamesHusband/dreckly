@@ -1,29 +1,60 @@
+'use client';
+
 import { CuisineCard } from '@dreckly/shared-ui-kit';
+import { Cuisine } from '@dreckly/shared-types';
+import { useState } from 'react';
 
-interface CuisineType {
-  name: string;
-  icon: React.ComponentType<{ className?: string }>;
-}
+import {
+  Utensils,
+  Fish,
+  PieChart,
+  Soup,
+  Pizza,
+  Hamburger,
+  Cake,
+  Salad,
+} from 'lucide-react';
 
-interface CuisineFilterProps {
-  cuisineTypes: CuisineType[];
-}
+const cuisineIcons: Record<Cuisine['icon'], React.ElementType> = {
+  PieChart,
+  Fish,
+  Utensils,
+  Soup,
+  Pizza,
+  Hamburger,
+  Cake,
+  Salad,
+};
 
-export const CuisineFilter = ({ cuisineTypes }: CuisineFilterProps) => (
-  <section className="py-12 bg-gray-50">
-    <div className="container mx-auto px-4">
-      <h2 className="text-2xl font-bold text-center mb-8">
-        What are you craving?
-      </h2>
-      <div className="grid grid-cols-4 md:grid-cols-8 gap-4 max-w-4xl mx-auto">
-        {cuisineTypes.map((cuisine) => (
-          <CuisineCard
-            key={cuisine.name}
-            name={cuisine.name}
-            icon={cuisine.icon}
-          />
-        ))}
+export const CuisineFilter = ({ cuisines }: { cuisines: Cuisine[] }) => {
+  const [selectedCuisine, setSelectedCuisine] = useState<string | null>(null);
+
+  const handleCuisineClick = (cuisineName: string) => {
+    setSelectedCuisine(cuisineName);
+  };
+
+  return (
+    <section className="py-12 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-2xl font-bold text-center mb-8">
+          What are you craving?
+        </h2>
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-4 max-w-4xl mx-auto">
+          {cuisines.map((cuisine) => {
+            const Icon = cuisineIcons[cuisine.icon];
+            return (
+              <CuisineCard
+                key={cuisine.name}
+                name={cuisine.name}
+                icon={cuisine.icon}
+                iconComponent={Icon}
+                onClick={() => handleCuisineClick(cuisine.name)}
+                isSelected={selectedCuisine === cuisine.name}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
