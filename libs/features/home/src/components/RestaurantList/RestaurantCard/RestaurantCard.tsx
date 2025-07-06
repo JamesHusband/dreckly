@@ -1,7 +1,7 @@
 import { Clock, Star, Truck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getRestaurantImage } from '../../../utils';
+import { getRestaurantImage } from '@dreckly/shared-utils';
 import { BaseRestaurant } from '@dreckly/shared-types';
 
 export const RestaurantCard = ({

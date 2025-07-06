@@ -1,6 +1,6 @@
 import { Clock, Star, Truck, MapPin } from 'lucide-react';
 import Image from 'next/image';
-import { getRestaurantImage } from '@dreckly/features-home';
+import { getRestaurantImage } from '@dreckly/shared-utils';
 
 interface RestaurantHeaderProps {
   name: string;
