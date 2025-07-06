@@ -7,9 +7,9 @@ import {
   RestaurantHeader,
   MinimumOrderNotice,
   MenuSection,
-  BackToRestaurants,
   OrderSidebar,
 } from '@dreckly/features-restaurants';
+import { BackToRestaurants } from '@dreckly/shared-ui-kit';
 
 interface RestaurantPageProps {
   params: Promise<{ id: string }>;
