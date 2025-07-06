@@ -21,11 +21,6 @@ const RestaurantPage = ({ params }: RestaurantPageProps) => {
   const [restaurant, setRestaurant] = useState<Restaurant | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const restaurantId = Number.parseInt(id);
-  if (isNaN(restaurantId)) {
-    notFound();
-  }
-
   useEffect(() => {
     setLoading(true);
     setRestaurant(null);
@@ -82,7 +77,7 @@ const RestaurantPage = ({ params }: RestaurantPageProps) => {
       <div className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <MinimumOrderNotice minOrder={restaurant.minOrder} />
+            <MinimumOrderNotice minOrder={restaurant.minimumOrder} />
 
             {restaurant.menu.map((category, categoryIndex) => (
               <MenuSection
@@ -106,7 +101,7 @@ const RestaurantPage = ({ params }: RestaurantPageProps) => {
               addToCart={addToCart}
               getCartTotal={getCartTotal}
               deliveryFee={restaurant.deliveryFee}
-              minOrder={restaurant.minOrder}
+              minOrder={restaurant.minimumOrder}
             />
           </div>
         </div>
