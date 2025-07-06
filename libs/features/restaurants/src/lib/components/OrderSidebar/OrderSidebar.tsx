@@ -1,4 +1,4 @@
-import { Minus, Plus } from 'lucide-react';
+import { ItemCounter } from '@dreckly/shared-ui-kit';
 import Link from 'next/link';
 
 interface MenuItemType {
@@ -61,21 +61,11 @@ export const OrderSidebar = ({
                         </p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => removeFromCart(item.id)}
-                          className="h-6 w-6 border border-gray-300 rounded flex items-center justify-center hover:bg-gray-50 transition-colors"
-                        >
-                          <Minus className="h-3 w-3" />
-                        </button>
-                        <span className="w-6 text-center text-sm">
-                          {cart[item.id]}
-                        </span>
-                        <button
-                          onClick={() => addToCart(item.id)}
-                          className="h-6 w-6 bg-orange-500 hover:bg-orange-600 text-white rounded flex items-center justify-center transition-colors"
-                        >
-                          <Plus className="h-3 w-3" />
-                        </button>
+                        <ItemCounter
+                          addItem={() => addToCart(item.id)}
+                          removeItem={() => removeFromCart(item.id)}
+                          quantity={cart[item.id]}
+                        />
                       </div>
                     </div>
                   );
