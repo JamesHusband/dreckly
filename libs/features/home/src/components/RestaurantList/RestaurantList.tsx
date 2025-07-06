@@ -1,14 +1,6 @@
 import { RestaurantCard } from './RestaurantCard';
 
-interface Restaurant {
-  id: number;
-  name: string;
-  cuisine: string;
-  rating: number;
-  deliveryTime: string;
-  deliveryFee: string;
-  featured: boolean;
-}
+import { Restaurant } from '@dreckly/shared-types';
 
 export const RestaurantList = ({
   restaurants,
@@ -23,7 +15,7 @@ export const RestaurantList = ({
           {restaurants.map((restaurant) => (
             <RestaurantCard
               key={restaurant.id}
-              id={restaurant.id.toString()}
+              id={restaurant.id}
               name={restaurant.name}
               featured={restaurant.featured}
               rating={restaurant.rating}

@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import React, { useState } from 'react';
 import { notFound } from 'next/navigation';
+import { Restaurant } from '@dreckly/shared-types';
 import {
   RestaurantHeader,
   MinimumOrderNotice,
@@ -9,32 +10,6 @@ import {
   BackToRestaurants,
   OrderSidebar,
 } from '@dreckly/features-restaurants';
-
-interface MenuItemType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-}
-
-interface MenuCategory {
-  name: string;
-  items: MenuItemType[];
-}
-interface Restaurant {
-  id: number;
-  name: string;
-  cuisine: string;
-  rating: number;
-  deliveryTime: string;
-  deliveryFee: string;
-  featured: boolean;
-  menu: MenuCategory[];
-  description: string;
-  reviewCount: number;
-  address: string;
-  minOrder: string;
-}
 
 interface RestaurantPageProps {
   params: Promise<{ id: string }>;

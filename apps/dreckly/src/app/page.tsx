@@ -1,4 +1,6 @@
 import { Hero, CuisineFilter, RestaurantList } from '@dreckly/features-home';
+import { Restaurant } from '@dreckly/shared-types';
+
 import {
   Utensils,
   Fish,
@@ -10,22 +12,13 @@ import {
   Salad,
 } from 'lucide-react';
 
-interface Restaurant {
-  id: number;
-  name: string;
-  cuisine: string;
-  rating: number;
-  deliveryTime: string;
-  deliveryFee: string;
-  featured: boolean;
-}
-
 const Page = async () => {
   const res = await fetch('http://localhost:3000/api/restaurants', {
     cache: 'no-store',
   });
   const restaurants: Restaurant[] = await res.json();
 
+  console.info('restaurants from page', restaurants);
   const cuisineTypes = [
     { name: 'Cornish', icon: Utensils },
     { name: 'Fish & Chips', icon: Fish },

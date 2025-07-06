@@ -2,15 +2,7 @@ import { Clock, Star, Truck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getRestaurantImage } from '../../../utils';
-interface RestaurantCardProps {
-  id: string;
-  name: string;
-  featured: boolean;
-  rating: number;
-  deliveryTime: string;
-  deliveryFee: string;
-  cuisine: string;
-}
+import { BaseRestaurant } from '@dreckly/shared-types';
 
 export const RestaurantCard = ({
   id,
@@ -20,7 +12,7 @@ export const RestaurantCard = ({
   deliveryTime,
   deliveryFee,
   cuisine,
-}: RestaurantCardProps) => {
+}: BaseRestaurant) => {
   return (
     <Link
       key={id}
