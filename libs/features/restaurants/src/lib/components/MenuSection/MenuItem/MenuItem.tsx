@@ -1,6 +1,5 @@
 import { Minus, Plus } from 'lucide-react';
-import Image from 'next/image';
-import { getRestaurantImage } from '@dreckly/features-home';
+import { FoodIcon } from '@dreckly/shared-ui-kit';
 
 interface MenuItemProps {
   id: string;
@@ -30,12 +29,11 @@ export const MenuItem = ({
     >
       <div className="p-4">
         <div className="flex gap-4">
-          <Image
-            src={getRestaurantImage('menu', restaurantName, name)}
-            alt={name}
-            width={100}
-            height={100}
-            className="w-20 h-20 object-cover rounded-lg flex-shrink-0"
+          <FoodIcon
+            restaurantName={restaurantName}
+            name={name}
+            width={80}
+            height={80}
           />
           <div className="flex-1">
             <h3 className="font-semibold text-lg mb-1">{name}</h3>
