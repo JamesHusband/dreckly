@@ -1,0 +1,1 @@
+export { setRestaurants } from './setRestaurants';

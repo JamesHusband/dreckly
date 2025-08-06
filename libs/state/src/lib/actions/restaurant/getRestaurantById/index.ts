@@ -1,0 +1,1 @@
+export { getRestaurantById } from './getRestaurantById';

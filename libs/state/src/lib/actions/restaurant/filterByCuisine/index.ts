@@ -1,0 +1,1 @@
+export { filterByCuisine } from './filterByCuisine';

@@ -16,5 +16,8 @@
   "nx": {
     "name": "state"
   },
-  "dependencies": {}
+  "dependencies": {
+    "zustand": "^4.5.0",
+    "@dreckly/shared-types": "*"
+  }
 }
