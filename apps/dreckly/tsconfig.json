@@ -48,7 +48,28 @@
   ],
   "references": [
     {
+      "path": "../../libs/features/restaurants"
+    },
+    {
+      "path": "../../libs/shared/ui-kit"
+    },
+    {
+      "path": "../../libs/shared/types"
+    },
+    {
+      "path": "../../libs/features/home"
+    },
+    {
       "path": "../../libs/shared/layout"
+    },
+    {
+      "path": "../../libs/state"
+    },
+    {
+      "path": "../../libs/features/cart"
+    },
+    {
+      "path": "../../libs/data-access"
     }
   ]
 }

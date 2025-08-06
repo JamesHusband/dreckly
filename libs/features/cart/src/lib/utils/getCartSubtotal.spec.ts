@@ -1,9 +1,16 @@
-import { CartItemType } from '@dreckly/shared-types';
 import { getCartSubtotal } from './getCartSubtotal';
+import { useCartStore } from '@dreckly/state';
+
+// Mock the store
+jest.mock('@dreckly/state', () => ({
+  useCartStore: {
+    getState: jest.fn(),
+  },
+}));
 
 describe('getCartSubtotal', () => {
   it('should return the subtotal of the cart', () => {
-    const cartItems = [
+    const mockCartItems = [
       {
         id: '1',
         restaurantId: '1',
@@ -12,8 +19,15 @@ describe('getCartSubtotal', () => {
         price: 10,
         quantity: 2,
         image: 'test.jpg',
-      } as CartItemType,
+        deliveryFee: 2.99,
+        minimumOrder: 15.0,
+      },
     ];
-    expect(getCartSubtotal({ cartItems })).toBe(20);
+
+    (useCartStore.getState as jest.Mock).mockReturnValue({
+      cartItems: mockCartItems,
+    });
+
+    expect(getCartSubtotal()).toBe(20);
   });
 });

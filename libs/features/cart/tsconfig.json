@@ -3,6 +3,15 @@
   "include": [],
   "references": [
     {
+      "path": "../../state"
+    },
+    {
+      "path": "../../shared/ui-kit"
+    },
+    {
+      "path": "../../shared/types"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {

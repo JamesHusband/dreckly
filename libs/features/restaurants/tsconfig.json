@@ -3,6 +3,15 @@
   "include": [],
   "references": [
     {
+      "path": "../../shared/utils"
+    },
+    {
+      "path": "../cart"
+    },
+    {
+      "path": "../../shared/ui-kit"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {

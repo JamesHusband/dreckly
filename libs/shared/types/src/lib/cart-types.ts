@@ -6,4 +6,6 @@ export interface CartItemType {
   price: number;
   quantity: number;
   image: string;
+  deliveryFee: number;
+  minimumOrder: number;
 }

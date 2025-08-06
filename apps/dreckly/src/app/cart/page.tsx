@@ -6,59 +6,40 @@ import {
   CartPageHeader,
   CartSummary,
   EmptyCart,
-  getCartSubtotal,
 } from '@dreckly/features-cart';
+import { useCartStore, useRestaurantStore } from '@dreckly/state';
 
-import { useState } from 'react';
-
-// TODO: Get from Zustand store
 const CartPage = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: '1',
-      restaurantId: '1',
-      restaurantName: 'The Cornish Pasty Co.',
-      name: 'Traditional Pasty',
-      price: 4.5,
-      quantity: 2,
-      image: '/placeholder.svg?height=80&width=80',
-    },
-    {
-      id: '2',
-      restaurantId: '1',
-      restaurantName: 'The Cornish Pasty Co.',
-      name: 'Cheese & Onion Pasty',
-      price: 4.25,
-      quantity: 1,
-      image: '/placeholder.svg?height=80&width=80',
-    },
-  ]);
+  const { cartItems, updateItemQuantity, removeItem } = useCartStore();
 
-  // TODO: Get from user profile
-  // const [userDeliveryAddress, setUserDeliveryAddress] = useState(
-  //   '123 High Street, Truro, TR1 2AB'
-  // );
+  const { selectedRestaurant } = useRestaurantStore();
 
-  const deliveryFee = 2.99; // TODO: Get from current restaurant
-  const serviceFee = 1.49; // TODO: get from Dreckly settings
+  const deliveryFee = selectedRestaurant?.deliveryFee || 0;
+  const serviceFee = 1.49;
 
-  const subtotal = getCartSubtotal({ cartItems });
-  const total = subtotal + deliveryFee + serviceFee;
+  const subtotal = useCartStore((state) => {
+    const { cartItems } = state;
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  });
+
+  const total = useCartStore((state) => {
+    const { cartItems } = state;
+    const subtotal = cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    return subtotal + deliveryFee + serviceFee;
+  });
 
   const updateQuantity = (id: string, newQuantity: number) => {
-    if (newQuantity === 0) {
-      setCartItems((prev) => prev.filter((item) => item.id !== id));
-    } else {
-      setCartItems((prev) =>
-        prev.map((item) =>
-          item.id === id ? { ...item, quantity: newQuantity } : item
-        )
-      );
-    }
+    updateItemQuantity(id, newQuantity);
   };
 
-  const removeItem = (id: string) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  const removeItemFromCart = (id: string) => {
+    removeItem(id);
   };
 
   if (cartItems.length === 0) {
@@ -73,7 +54,7 @@ const CartPage = () => {
           cartItems={cartItems}
           userDeliveryAddress={'123 High Street, Truro, TR1 2AB'}
           updateQuantity={updateQuantity}
-          removeItem={removeItem}
+          removeItem={removeItemFromCart}
         />
         <CartSummary
           subtotal={subtotal}

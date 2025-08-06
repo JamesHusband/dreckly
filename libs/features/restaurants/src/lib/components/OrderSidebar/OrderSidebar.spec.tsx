@@ -10,7 +10,7 @@ describe('OrderSidebar', () => {
         menuCategories={[]}
         removeFromCart={() => jest.fn()}
         addToCart={() => jest.fn()}
-        getCartTotal={() => 0}
+  
         deliveryFee="1"
         minOrder="1"
       />

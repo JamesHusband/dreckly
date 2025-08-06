@@ -2,7 +2,7 @@
 
 import { CuisineCard } from '@dreckly/shared-ui-kit';
 import { Cuisine } from '@dreckly/shared-types';
-import { useState } from 'react';
+import { useRestaurantStore } from '@dreckly/state';
 
 import {
   Utensils,
@@ -27,10 +27,14 @@ const cuisineIcons: Record<Cuisine['icon'], React.ElementType> = {
 };
 
 export const CuisineFilter = ({ cuisines }: { cuisines: Cuisine[] }) => {
-  const [selectedCuisine, setSelectedCuisine] = useState<string | null>(null);
+  const { selectedCuisine, filterByCuisine, clearFilters } = useRestaurantStore();
 
   const handleCuisineClick = (cuisineName: string) => {
-    setSelectedCuisine(cuisineName);
+    if (selectedCuisine === cuisineName) {
+      clearFilters();
+    } else {
+      filterByCuisine(cuisineName);
+    }
   };
 
   return (
