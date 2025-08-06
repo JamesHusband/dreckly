@@ -32,6 +32,9 @@
     },
     {
       "path": "./libs/features/cart"
+    },
+    {
+      "path": "./libs/state"
     }
   ]
 }
