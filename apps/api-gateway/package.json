@@ -33,7 +33,13 @@
     }
   },
   "dependencies": {
+    "@dreckly/data-access": "*",
+    "@dreckly/shared-types": "*",
     "@types/cors": "^2.8.19",
     "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "@types/supertest": "^6.0.2",
+    "supertest": "^6.3.4"
   }
 }

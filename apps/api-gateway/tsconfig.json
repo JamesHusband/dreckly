@@ -4,6 +4,12 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/shared/types"
+    },
+    {
+      "path": "../../libs/data-access"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {
