@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   ...nxPreset,
-  setupFilesAfterEnv: [path.join(__dirname, 'test-setup.ts')],
+  setupFilesAfterEnv: [path.join(__dirname, './scripts/test-setup.ts')],
   transform: {
     '^test-setup\\.ts$': ['babel-jest', { presets: ['@nx/react/babel'] }],
   },
