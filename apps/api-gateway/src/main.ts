@@ -22,6 +22,7 @@ app.use('/api/cuisines', cuisines);
 
 const port = process.env.PORT || 3333;
 
+/* istanbul ignore next */
 if (process.env.NODE_ENV !== 'test') {
   const server = app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}/api`);
