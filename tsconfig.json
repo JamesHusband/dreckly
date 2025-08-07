@@ -35,6 +35,12 @@
     },
     {
       "path": "./libs/state"
+    },
+    {
+      "path": "./apps/api-gateway-e2e"
+    },
+    {
+      "path": "./apps/api-gateway"
     }
   ]
 }
