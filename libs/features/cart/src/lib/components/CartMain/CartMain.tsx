@@ -1,17 +1,14 @@
-import { CartItemType } from '@dreckly/shared-types';
 import { CartHeader, CartItem, CustomerAddress } from '../';
+import { useCartStore } from '@dreckly/state';
+import { useUpdateQuantity, useRemoveFromCart } from '../../hooks';
 
-export const CartMain = ({
-  cartItems,
-  userDeliveryAddress,
-  updateQuantity,
-  removeItem,
-}: {
-  cartItems: CartItemType[];
-  userDeliveryAddress: string;
-  updateQuantity: (id: string, newQuantity: number) => void;
-  removeItem: (id: string) => void;
-}) => {
+export const CartMain = () => {
+  const { cartItems } = useCartStore();
+  const { updateQuantity } = useUpdateQuantity();
+  const { removeFromCart } = useRemoveFromCart();
+
+  // TODO: Get from API/user preferences later
+  const userDeliveryAddress = '123 High Street, Truro, TR1 2AB';
   return (
     <div className="lg:col-span-2 space-y-6">
       <CustomerAddress customerAddress={userDeliveryAddress} />
@@ -27,7 +24,7 @@ export const CartMain = ({
                 key={item.id}
                 item={item}
                 updateQuantity={updateQuantity}
-                removeItem={removeItem}
+                removeItem={removeFromCart}
               />
             ))}
           </div>
