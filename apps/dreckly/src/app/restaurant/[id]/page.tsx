@@ -26,7 +26,7 @@ const RestaurantPage = ({ params }: RestaurantPageProps) => {
   const { setSelectedRestaurant } = useRestaurantStore();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/restaurants/${id}`, { cache: 'no-store' })
+    fetch(`http://localhost:3333/api/restaurants/${id}`)
       .then((response) => {
         if (!response.ok) return null;
         return response.json();
