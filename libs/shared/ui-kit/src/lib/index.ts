@@ -5,3 +5,6 @@ export * from './CuisineCard';
 export * from './BackToRestaurants';
 export * from './FoodIcon';
 export * from './ItemCounter';
+export * from './PriceRow';
+export * from './Button';
+export * from './InfoCard';

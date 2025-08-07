@@ -6,3 +6,6 @@ export * from './lib/ItemCounter';
 export * from './lib/Logo';
 export * from './lib/NavButton';
 export * from './lib/Status';
+export * from './lib/PriceRow';
+export * from './lib/Button';
+export * from './lib/InfoCard';
