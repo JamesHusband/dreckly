@@ -14,9 +14,9 @@ import {
 } from '../../actions/restaurant';
 
 interface RestaurantState {
-  restaurants: Restaurant[];
+  restaurants: Restaurant[] | null;
   filteredRestaurants: Restaurant[];
-  cuisines: Cuisine[];
+  cuisines: Cuisine[] | null;
   selectedRestaurant: Restaurant | null;
   selectedCuisine: string | null;
   loading: boolean;
@@ -38,9 +38,9 @@ interface RestaurantStore extends RestaurantState {
 export const useRestaurantStore = create<RestaurantStore>()(
   persist(
     (set, get) => ({
-      restaurants: [],
+      restaurants: null,
       filteredRestaurants: [],
-      cuisines: [],
+      cuisines: null,
       selectedRestaurant: null,
       selectedCuisine: null,
       loading: true,

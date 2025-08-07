@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "test": "nx run-many --target=test --all",
     "test:coverage": "nx run-many --target=test --all --coverage; node scripts/merge-coverage.mjs"
   },
   "private": true,

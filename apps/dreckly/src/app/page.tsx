@@ -1,62 +1,26 @@
 'use client';
-import { useEffect } from 'react';
 import { Hero, CuisineFilter, RestaurantList } from '@dreckly/features-home';
-import { Restaurant, Cuisine } from '@dreckly/shared-types';
 import { useRestaurantStore } from '@dreckly/state';
 import { Status } from '@dreckly/shared-ui-kit';
+import { useRestaurants, useCuisines } from '@dreckly/features-restaurants';
 
 const Page = () => {
+  const { filteredRestaurants } = useRestaurantStore();
   const {
     restaurants,
+    loading: restaurantsLoading,
+    error: restaurantsError,
+  } = useRestaurants();
+  const {
     cuisines,
-    filteredRestaurants,
-    setRestaurants,
-    setCuisines,
-    loading,
-    setLoading,
-    error,
-    setError,
-  } = useRestaurantStore();
+    loading: cuisinesLoading,
+    error: cuisinesError,
+  } = useCuisines();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (restaurants.length > 0 && cuisines.length > 0) {
-        return;
-      }
+  const loading = restaurantsLoading || cuisinesLoading;
+  const error = restaurantsError || cuisinesError;
 
-      try {
-        const [restaurantsRes, cuisinesRes] = await Promise.all([
-          fetch('http://localhost:3333/api/restaurants'),
-          fetch('http://localhost:3333/api/cuisines'),
-        ]);
-
-        if (!restaurantsRes.ok || !cuisinesRes.ok) {
-          throw new Error('Failed to fetch data');
-        }
-
-        const restaurantsData: Restaurant[] = await restaurantsRes.json();
-        const cuisinesData: Cuisine[] = await cuisinesRes.json();
-
-        setRestaurants(restaurantsData);
-        setCuisines(cuisinesData);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [
-    restaurants.length,
-    cuisines.length,
-    setRestaurants,
-    setCuisines,
-    setLoading,
-    setError,
-  ]);
-
-  if (loading && restaurants.length === 0) {
+  if (loading || !restaurants || !cuisines) {
     return <Status type="loading" message="Loading restaurants..." />;
   }
 

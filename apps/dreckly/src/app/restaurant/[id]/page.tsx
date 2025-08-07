@@ -1,8 +1,6 @@
 'use client';
-import { useEffect, useCallback } from 'react';
-import React, { useState } from 'react';
+import React from 'react';
 import { notFound } from 'next/navigation';
-import { Restaurant } from '@dreckly/shared-types';
 import {
   RestaurantHeader,
   MinimumOrderNotice,
@@ -10,8 +8,9 @@ import {
   OrderSidebar,
 } from '@dreckly/features-restaurants';
 import { BackToRestaurants, Status } from '@dreckly/shared-ui-kit';
-import { useCartStore, useRestaurantStore } from '@dreckly/state';
-import { getCartSubtotal } from '@dreckly/features-cart';
+import { useCartStore } from '@dreckly/state';
+import { useAddToCart, useRemoveFromCart } from '@dreckly/features-cart';
+import { useRestaurant } from '@dreckly/features-restaurants';
 
 interface RestaurantPageProps {
   params: Promise<{ id: string }>;
@@ -19,59 +18,11 @@ interface RestaurantPageProps {
 
 const RestaurantPage = ({ params }: RestaurantPageProps) => {
   const { id } = React.use(params);
-  const [restaurant, setRestaurant] = useState<Restaurant | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { restaurant, loading } = useRestaurant(id);
 
-  const { cartItems, addItem, removeItem } = useCartStore();
-  const { setSelectedRestaurant } = useRestaurantStore();
-
-  useEffect(() => {
-    fetch(`http://localhost:3333/api/restaurants/${id}`)
-      .then((response) => {
-        if (!response.ok) return null;
-        return response.json();
-      })
-      .then((data) => setRestaurant(data))
-      .finally(() => setLoading(false));
-  }, [id]);
-
-  const addToCart = useCallback(
-    (itemId: string) => {
-      if (!restaurant) return;
-
-      const menuItem = restaurant.menu
-        .flatMap((category) => category.items)
-        .find((item) => item.id === itemId);
-
-      if (menuItem) {
-        setSelectedRestaurant(restaurant);
-
-        addItem({
-          id: menuItem.id,
-          restaurantId: restaurant.id.toString(),
-          restaurantName: restaurant.name,
-          name: menuItem.name,
-          price: menuItem.price,
-          image: `/images/restaurant/${restaurant.name
-            .toLowerCase()
-            .replace(/\s+/g, '-')}/menu/${menuItem.name
-            .toLowerCase()
-            .replace(/\s+/g, '-')}.webp`,
-          deliveryFee: restaurant.deliveryFee,
-          minimumOrder: restaurant.minimumOrder,
-          quantity: 1,
-        });
-      }
-    },
-    [restaurant, addItem, setSelectedRestaurant]
-  );
-
-  const removeFromCart = useCallback(
-    (itemId: string) => {
-      removeItem(itemId);
-    },
-    [removeItem]
-  );
+  const { cartItems } = useCartStore();
+  const { addToCart } = useAddToCart(restaurant);
+  const { removeFromCart } = useRemoveFromCart();
 
   if (loading) {
     return <Status type="loading" message="Loading restaurant..." />;

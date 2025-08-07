@@ -1,16 +1,16 @@
 import { Clock } from 'lucide-react';
+import {
+  getCartSubtotal,
+  getCartTotal,
+  getDeliveryFee,
+  getServiceFee,
+} from '../../utils';
 
-export const CartSummary = ({
-  subtotal,
-  deliveryFee,
-  serviceFee,
-  total,
-}: {
-  subtotal: number;
-  deliveryFee: number;
-  serviceFee: number;
-  total: number;
-}) => {
+export const CartSummary = () => {
+  const subtotal = getCartSubtotal();
+  const deliveryFee = getDeliveryFee();
+  const serviceFee = getServiceFee();
+  const total = getCartTotal();
   return (
     <div className="lg:col-span-1">
       <div className="bg-white border border-gray-200 rounded-lg shadow-sm sticky top-24">
