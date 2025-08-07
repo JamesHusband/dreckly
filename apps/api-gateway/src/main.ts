@@ -5,8 +5,18 @@
 
 import express from 'express';
 import * as path from 'path';
+import cors from 'cors';
 
 const app = express();
+
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
