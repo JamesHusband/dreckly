@@ -26,8 +26,8 @@ const Page = () => {
 
       try {
         const [restaurantsRes, cuisinesRes] = await Promise.all([
-          fetch('http://localhost:3000/api/restaurants', { cache: 'no-store' }),
-          fetch('http://localhost:3000/api/cuisines', { cache: 'no-store' }),
+          fetch('http://localhost:3333/api/restaurants'),
+          fetch('http://localhost:3333/api/cuisines'),
         ]);
 
         if (!restaurantsRes.ok || !cuisinesRes.ok) {
