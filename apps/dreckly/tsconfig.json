@@ -67,9 +67,6 @@
     },
     {
       "path": "../../libs/features/cart"
-    },
-    {
-      "path": "../../libs/data-access"
     }
   ]
 }
