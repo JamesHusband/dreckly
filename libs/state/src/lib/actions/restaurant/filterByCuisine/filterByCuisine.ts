@@ -5,12 +5,13 @@ export const filterByCuisine =
   (set: (fn: (state: RestaurantState) => Partial<RestaurantState>) => void) =>
   (cuisine: string) => {
     set((state: RestaurantState) => {
-      const filtered = cuisine
-        ? state.restaurants.filter(
-            (restaurant: Restaurant) =>
-              restaurant.cuisine.toLowerCase() === cuisine.toLowerCase()
-          )
-        : state.restaurants;
+      const filtered =
+        cuisine && state.restaurants
+          ? state.restaurants.filter(
+              (restaurant: Restaurant) =>
+                restaurant.cuisine.toLowerCase() === cuisine.toLowerCase()
+            )
+          : state.restaurants || [];
 
       return {
         filteredRestaurants: filtered,
