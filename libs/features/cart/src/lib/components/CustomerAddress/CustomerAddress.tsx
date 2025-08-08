@@ -1,11 +1,12 @@
 import { MapPin, Clock } from 'lucide-react';
+import { Card } from '@dreckly/shared-ui-kit';
 
 export const CustomerAddress = ({
   customerAddress,
 }: {
   customerAddress: string;
 }) => (
-  <div className="bg-white border border-gray-200 rounded-lg shadow-sm">
+  <Card>
     <div className="p-4 border-b border-gray-200">
       <h3 className="text-lg font-semibold flex items-center gap-2">
         <MapPin className="h-5 w-5" />
@@ -26,5 +27,5 @@ export const CustomerAddress = ({
         </button>
       </div>
     </div>
-  </div>
+  </Card>
 );

@@ -10,3 +10,4 @@ export * from './lib/PriceRow';
 export * from './lib/Button';
 export * from './lib/InfoCard';
 export * from './lib/Hero';
+export * from './lib/Card';

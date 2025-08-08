@@ -1,4 +1,4 @@
-import { ItemCounter } from '@dreckly/shared-ui-kit';
+import { ItemCounter, Card } from '@dreckly/shared-ui-kit';
 import Link from 'next/link';
 import { getCartSubtotal } from '@dreckly/features-cart';
 
@@ -37,7 +37,7 @@ export const OrderSidebar = ({
   const totalWithDelivery = cartTotal + deliveryFee;
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-sm sticky top-24">
+    <Card sticky>
       <div className="p-4 border-b border-gray-200">
         <h3 className="text-lg font-semibold">Your Order</h3>
         <p className="text-sm text-gray-600">From {name}</p>
@@ -110,6 +110,6 @@ export const OrderSidebar = ({
           </>
         )}
       </div>
-    </div>
+    </Card>
   );
 };

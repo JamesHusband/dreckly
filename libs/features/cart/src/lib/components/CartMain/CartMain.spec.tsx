@@ -37,6 +37,7 @@ jest.mock('../CustomerAddress', () => ({
 jest.mock('@dreckly/shared-ui-kit', () => ({
   FoodIcon: () => <div>Food Icon</div>,
   ItemCounter: () => <div>Item Counter</div>,
+  Card: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
 }));
 
 describe('CartMain', () => {

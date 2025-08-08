@@ -1,4 +1,4 @@
-import { FoodIcon, ItemCounter } from '@dreckly/shared-ui-kit';
+import { FoodIcon, ItemCounter, Card } from '@dreckly/shared-ui-kit';
 
 interface MenuItemProps {
   id: string;
@@ -22,10 +22,7 @@ export const MenuItem = ({
   removeFromCart,
 }: MenuItemProps) => {
   return (
-    <div
-      key={id}
-      className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden"
-    >
+    <Card key={id} overflow="hidden">
       <div className="p-4">
         <div className="flex gap-4">
           <FoodIcon
@@ -50,6 +47,6 @@ export const MenuItem = ({
           </div>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };

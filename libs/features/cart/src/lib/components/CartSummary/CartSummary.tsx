@@ -1,5 +1,5 @@
 import { Clock } from 'lucide-react';
-import { PriceRow, Button, InfoCard } from '@dreckly/shared-ui-kit';
+import { PriceRow, Button, InfoCard, Card } from '@dreckly/shared-ui-kit';
 import {
   getCartSubtotal,
   getCartTotal,
@@ -14,7 +14,7 @@ export const CartSummary = () => {
   const total = getCartTotal();
   return (
     <div className="lg:col-span-1">
-      <div className="bg-white border border-gray-200 rounded-lg shadow-sm sticky top-24">
+      <Card sticky>
         <div className="p-4 border-b border-gray-200">
           <h3 className="text-lg font-semibold">Order Summary</h3>
         </div>
@@ -46,7 +46,7 @@ export const CartSummary = () => {
             </span>
           </InfoCard>
         </div>
-      </div>
+      </Card>
     </div>
   );
 };

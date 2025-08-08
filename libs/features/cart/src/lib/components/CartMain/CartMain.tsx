@@ -1,6 +1,7 @@
 import { CartHeader, CartItem, CustomerAddress } from '../';
 import { useCartStore } from '@dreckly/state';
 import { useUpdateQuantity, useRemoveFromCart } from '../../hooks';
+import { Card } from '@dreckly/shared-ui-kit';
 
 export const CartMain = () => {
   const { cartItems } = useCartStore();
@@ -12,7 +13,7 @@ export const CartMain = () => {
   return (
     <div className="lg:col-span-2 space-y-6">
       <CustomerAddress customerAddress={userDeliveryAddress} />
-      <div className="bg-white border border-gray-200 rounded-lg shadow-sm">
+      <Card>
         <CartHeader
           restaurantName={cartItems[0]?.restaurantName}
           id={cartItems[0]?.restaurantId}
@@ -29,7 +30,7 @@ export const CartMain = () => {
             ))}
           </div>
         </div>
-      </div>
+      </Card>
     </div>
   );
 };
