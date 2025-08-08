@@ -61,4 +61,4 @@ export const CuisineFilter = ({ cuisines }: { cuisines: Cuisine[] }) => {
       </div>
     </section>
   );
-};
+}; 

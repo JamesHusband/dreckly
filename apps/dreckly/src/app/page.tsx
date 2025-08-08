@@ -1,8 +1,12 @@
 'use client';
-import { CuisineFilter, RestaurantList } from '@dreckly/features-home';
 import { useRestaurantStore } from '@dreckly/state';
 import { Status, Hero } from '@dreckly/shared-ui-kit';
-import { useRestaurants, useCuisines } from '@dreckly/features-restaurants';
+import {
+  RestaurantList,
+  CuisineFilter,
+  useRestaurants,
+  useCuisines,
+} from '@dreckly/features-restaurants';
 
 const Page = () => {
   const { filteredRestaurants } = useRestaurantStore();

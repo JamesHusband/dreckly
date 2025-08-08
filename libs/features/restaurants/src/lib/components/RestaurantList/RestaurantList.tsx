@@ -1,5 +1,4 @@
 import { RestaurantCard } from './RestaurantCard';
-
 import { Restaurant } from '@dreckly/shared-types';
 
 export const RestaurantList = ({
