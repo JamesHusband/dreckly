@@ -3,6 +3,12 @@
   "include": [],
   "references": [
     {
+      "path": "../../state"
+    },
+    {
+      "path": "../../shared/types"
+    },
+    {
       "path": "../../shared/utils"
     },
     {
