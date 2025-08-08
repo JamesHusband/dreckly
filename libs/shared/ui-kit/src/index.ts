@@ -11,3 +11,5 @@ export * from './lib/Button';
 export * from './lib/InfoCard';
 export * from './lib/Hero';
 export * from './lib/Card';
+export * from './lib/SectionHeader';
+export * from './lib/PageHeader';

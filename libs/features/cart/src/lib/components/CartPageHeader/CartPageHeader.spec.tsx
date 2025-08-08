@@ -3,6 +3,7 @@ import { CartPageHeader } from './CartPageHeader';
 
 jest.mock('@dreckly/shared-ui-kit', () => ({
   BackToRestaurants: () => <div>Back to Restaurants</div>,
+  PageHeader: ({ title }: { title: string }) => <h1>{title}</h1>,
 }));
 
 describe('CartPageHeader', () => {

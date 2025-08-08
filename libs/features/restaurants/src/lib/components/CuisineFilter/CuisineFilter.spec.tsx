@@ -8,6 +8,7 @@ jest.mock('@dreckly/shared-ui-kit', () => ({
       {name}
     </button>
   ),
+  PageHeader: ({ title }: { title: string }) => <h2>{title}</h2>,
 }));
 
 jest.mock('@dreckly/state', () => ({

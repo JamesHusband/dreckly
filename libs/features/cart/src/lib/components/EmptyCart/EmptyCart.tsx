@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { ShoppingCart } from 'lucide-react';
+import { PageHeader } from '@dreckly/shared-ui-kit';
+
 export const EmptyCart = () => (
   <div className="min-h-screen bg-gray-50 py-12">
     <div className="container mx-auto px-4">
@@ -8,7 +10,9 @@ export const EmptyCart = () => (
           <div className="text-6xl mb-4">
             <ShoppingCart />
           </div>
-          <h1 className="text-2xl font-bold mb-4">Your cart is empty</h1>
+          <div className="mb-4">
+            <PageHeader title="Your cart is empty" size="medium" />
+          </div>
           <p className="text-gray-600 mb-8">
             Looks like you haven&apos;t added any delicious food to your cart
             yet.
