@@ -1,8 +1,12 @@
 'use client';
-import { Hero, CuisineFilter, RestaurantList } from '@dreckly/features-home';
 import { useRestaurantStore } from '@dreckly/state';
-import { Status } from '@dreckly/shared-ui-kit';
-import { useRestaurants, useCuisines } from '@dreckly/features-restaurants';
+import { Status, Hero } from '@dreckly/shared-ui-kit';
+import {
+  RestaurantList,
+  CuisineFilter,
+  useRestaurants,
+  useCuisines,
+} from '@dreckly/features-restaurants';
 
 const Page = () => {
   const { filteredRestaurants } = useRestaurantStore();
@@ -30,7 +34,10 @@ const Page = () => {
 
   return (
     <>
-      <Hero />
+      <Hero
+        heading="Drecktly to your door"
+        content="Discover the best Cornish food delivered straight to your doorstep"
+      />
       <CuisineFilter cuisines={cuisines} />
       <RestaurantList restaurants={filteredRestaurants} />
     </>

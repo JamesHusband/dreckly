@@ -32,15 +32,13 @@ type NavButtonProps =
 
 export const NavButton = (props: NavButtonProps) => {
   const { icon: Icon, className = '', children } = props;
-  const baseClasses =
-    'flex items-center p-2 hover:bg-gray-100 rounded-md relative';
 
   switch (props.variant) {
     case 'button':
       return (
         <button
           onClick={props.onClick}
-          className={`${baseClasses} ${
+          className={`flex items-center p-2 hover:bg-gray-100 rounded-md relative ${
             props.isActive ? 'bg-gray-100' : ''
           } ${className}`}
         >
@@ -54,7 +52,7 @@ export const NavButton = (props: NavButtonProps) => {
         <Link
           href={props.href}
           onClick={props.onClick}
-          className={`${baseClasses} ${className}`}
+          className={`flex items-center p-2 hover:bg-gray-100 rounded-md relative ${className}`}
         >
           <Icon className="h-5 w-5 mr-2" />
           {children && <span className="hidden sm:inline">{children}</span>}
@@ -63,7 +61,7 @@ export const NavButton = (props: NavButtonProps) => {
 
     case 'cart':
       return (
-        <Link href={props.href} className={`${baseClasses} ${className}`}>
+        <Link href={props.href} className={`flex items-center p-2 hover:bg-gray-100 rounded-md relative ${className}`}>
           <Icon className="h-5 w-5" />
           {props.badgeCount && props.badgeCount > 0 && (
             <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-orange-500 text-white text-xs flex items-center justify-center">

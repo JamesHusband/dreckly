@@ -16,9 +16,6 @@
       "path": "./libs/shared/ui-kit"
     },
     {
-      "path": "./libs/features/home"
-    },
-    {
       "path": "./libs/features/restaurants"
     },
     {

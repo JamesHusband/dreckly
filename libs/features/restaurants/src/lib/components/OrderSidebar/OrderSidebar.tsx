@@ -1,4 +1,10 @@
-import { ItemCounter } from '@dreckly/shared-ui-kit';
+import {
+  ItemCounter,
+  Card,
+  SectionHeader,
+  PriceRow,
+  Button,
+} from '@dreckly/shared-ui-kit';
 import Link from 'next/link';
 import { getCartSubtotal } from '@dreckly/features-cart';
 
@@ -37,11 +43,8 @@ export const OrderSidebar = ({
   const totalWithDelivery = cartTotal + deliveryFee;
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-sm sticky top-24">
-      <div className="p-4 border-b border-gray-200">
-        <h3 className="text-lg font-semibold">Your Order</h3>
-        <p className="text-sm text-gray-600">From {name}</p>
-      </div>
+    <Card sticky>
+      <SectionHeader title="Your Order" subtitle={`From ${name}`} />
       <div className="p-4">
         {Object.keys(cart).length === 0 ? (
           <p className="text-gray-500 text-center py-8">Your cart is empty</p>
@@ -78,38 +81,26 @@ export const OrderSidebar = ({
             <hr className="my-4 border-gray-200" />
 
             <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span>Subtotal</span>
-                <span>£{cartTotal.toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Delivery</span>
-                <span>£{deliveryFee.toFixed(2)}</span>
-              </div>
+              <PriceRow label="Subtotal" amount={cartTotal} />
+              <PriceRow label="Delivery" amount={deliveryFee} />
               <hr className="border-gray-200" />
-              <div className="flex justify-between font-bold">
-                <span>Total</span>
-                <span>£{totalWithDelivery.toFixed(2)}</span>
-              </div>
+              <PriceRow label="Total" amount={totalWithDelivery} isTotal />
             </div>
 
-            <Link href="/cart">
-              <button
-                className={`w-full mt-4 py-3 rounded-md font-medium transition-colors ${
+            <Link href="/cart" className="block mt-4">
+              <Button
+                value={
                   cartTotal < minOrder
-                    ? 'bg-gray-400 text-white cursor-not-allowed'
-                    : 'bg-orange-500 hover:bg-orange-600 text-white'
-                }`}
+                    ? `Minimum order £${minOrder}`
+                    : 'Proceed to Checkout'
+                }
+                variant={cartTotal < minOrder ? 'secondary' : 'primary'}
                 disabled={cartTotal < minOrder}
-              >
-                {cartTotal < minOrder
-                  ? `Minimum order £${minOrder}`
-                  : 'Proceed to Checkout'}
-              </button>
+              />
             </Link>
           </>
         )}
       </div>
-    </div>
-  );
+    </Card>
+  ); 
 };

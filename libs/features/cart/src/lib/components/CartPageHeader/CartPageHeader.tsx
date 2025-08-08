@@ -1,10 +1,12 @@
-import { BackToRestaurants } from '@dreckly/shared-ui-kit';
+import { BackToRestaurants, PageHeader } from '@dreckly/shared-ui-kit';
 
 export const CartPageHeader = () => {
   return (
     <>
       <BackToRestaurants />
-      <h1 className="text-3xl font-bold mb-8">Your Order</h1>
+      <div className="mb-8">
+        <PageHeader title="Your Order" size="large" />
+      </div>
     </>
   );
 };

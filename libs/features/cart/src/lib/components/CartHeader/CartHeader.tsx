@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { SectionHeader } from '@dreckly/shared-ui-kit';
 
 export const CartHeader = ({
   restaurantName,
@@ -8,14 +9,16 @@ export const CartHeader = ({
   id: string;
 }) => {
   return (
-    <div className="p-4 border-b border-gray-200">
-      <h3 className="text-lg font-semibold">From {restaurantName}</h3>
-      <Link
-        href={`/restaurant/${id}`}
-        className="text-orange-600 hover:text-orange-500 text-sm"
-      >
-        Add more items
-      </Link>
-    </div>
+    <SectionHeader 
+      title={`From ${restaurantName}`}
+      action={
+        <Link
+          href={`/restaurant/${id}`}
+          className="text-orange-600 hover:text-orange-500 text-sm"
+        >
+          Add more items
+        </Link>
+      }
+    />
   );
 };
