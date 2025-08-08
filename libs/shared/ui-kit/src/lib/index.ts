@@ -8,3 +8,4 @@ export * from './ItemCounter';
 export * from './PriceRow';
 export * from './Button';
 export * from './InfoCard';
+export * from './Hero';

@@ -9,3 +9,4 @@ export * from './lib/Status';
 export * from './lib/PriceRow';
 export * from './lib/Button';
 export * from './lib/InfoCard';
+export * from './lib/Hero';
