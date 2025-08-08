@@ -4,7 +4,7 @@ export const clearFilters =
   (set: (fn: (state: RestaurantState) => Partial<RestaurantState>) => void) =>
   () => {
     set((state: RestaurantState) => ({
-      filteredRestaurants: state.restaurants,
+      filteredRestaurants: state.restaurants || [],
       selectedCuisine: null,
     }));
   };

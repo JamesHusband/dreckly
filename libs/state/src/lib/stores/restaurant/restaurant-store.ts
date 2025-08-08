@@ -51,7 +51,7 @@ export const useRestaurantStore = create<RestaurantStore>()(
       setSelectedCuisine: setSelectedCuisine(set),
       setLoading: setLoading(set),
       setError: setError(set),
-      filterByCuisine: filterByCuisine(set, get),
+      filterByCuisine: filterByCuisine(set),
       clearFilters: clearFilters(set),
       getRestaurantById: getRestaurantById(get),
     }),
