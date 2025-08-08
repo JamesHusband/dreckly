@@ -10,3 +10,5 @@ export * from './Button';
 export * from './InfoCard';
 export * from './Hero';
 export * from './Card';
+export * from './SectionHeader';
+export * from './PageHeader';
