@@ -1,7 +1,7 @@
 interface ButtonProps {
   value: string;
   variant: 'primary' | 'secondary' | 'outline';
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
 }
 
@@ -18,11 +18,14 @@ export const Button = ({
       'bg-transparent border-2 border-orange-500 text-orange-500 hover:bg-orange-50',
   };
 
-  const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : '';
-  const combinedClasses = `w-full text-lg py-6 rounded-md font-medium transition-colors ${variantClasses[variant]} ${disabledClasses}`;
-
   return (
-    <button className={combinedClasses} onClick={onClick} disabled={disabled}>
+    <button
+      className={`w-full text-lg py-3 rounded-md font-medium transition-colors ${
+        variantClasses[variant]
+      } ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {value}
     </button>
   );

@@ -84,4 +84,12 @@ describe('Button', () => {
     expect(button).toBeDisabled();
     expect(button).toHaveClass('opacity-50', 'cursor-not-allowed');
   });
+
+  it('should render without onClick prop', () => {
+    render(<Button value="No Click Button" variant="primary" />);
+
+    const button = screen.getByRole('button');
+    expect(button).toBeInTheDocument();
+    expect(screen.getByText('No Click Button')).toBeInTheDocument();
+  });
 });
